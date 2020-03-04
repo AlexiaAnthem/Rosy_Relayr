@@ -1,0 +1,42 @@
+# Code Challenge Relayr - Rosy Moreno
+
+## Task 1:
+
+- Imagine the following situation: you need to establish a QA process in a cross-functional team. The team builds a front-end application using REST APIs.
+
+1. Where would you start? What would be your first steps?
+
++ 
+I'm imagining a BE (web) team who develops an API endpont and exposes it to a Mobile Apps team (FE) which develops on top of it for their apps.
+
+To make this cross-functional, I'd focus on what endpoints both teams share in common. There could be endpoints only used by either team. I'd then keep track of these endpounts and focus on integration testing. 
+
+
+
+2. Which process would you establish around testing new functionality? How would you want the features to be tested?
+
++ 
+New functionality would typically be planned around the same time as the design documents or POCs with LGTMs from the team. 
+For new APIs, I would look at the API design docs and try to add this API to my collections and manually point it to a Dev env and look at what it returns. 
+
+For RESTful APIs I'd look at the CRUD rights for that API and how they influence data. For example, if DELETE is my method, I'd ensude we have implemented a hard delete of data in our DBs and that this reflects on the FE. Same for other methods appropriate for that API.
+
+I'd also do regression testing with other APIs that the newest API influences to make sure that everything still works as intended.
+
+
+
+
+3. If you would do test automation; which techniques or best practices would you use?
+
++ 
+This heavily depends on what the team wants and what has already been implemented.
+
+In my former Dev team our APIs were exposed to our Mobile team, therefore; of great impact to ensure functionality was not broken downstream.
+Some API unit tests existed within our repository but did not have full coverage.
+
+I began the process of automation using the Karate framework. Looking at our most used APIs, using our Graphana dashboards, I took an endpoint and wrote automation focused on schema validation and data types. These tests were then added to Jenkins.
+
+At a different company, rich in mcroservices, our APIs were also called by other services and so I helped implement contract testing using PACT brokers. these contract tests focused on making sure that API versioning was correct, and also evaluating JSON data types and schemas between one service and the other. Again, using a similar approach I picked out our most used APIs from our Kibana logs.
+
+
+

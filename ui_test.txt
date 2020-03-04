@@ -1,0 +1,20 @@
+*** Settings ***
+Resource    ui_resources.txt
+Test Timeout    30s
+
+
+*** Test Cases ***
+
+Open browser and click on the relevant result
+    Open Browser     ${URL}   ${BROWSER}
+    Element should be visible  ${SEARCH_BOX}
+    Input Text    ${SEARCH_BOX}   Relayr
+    Sleep    2s
+    :FOR    ${ELEMENT}    IN    ${SEARCH_BOX}
+    \    Log    ${ELEMENT}
+    \    Input text    ${SEARCH_BOX}    ${SEARCH_TEXT}
+    \    Press Key    ${SEARCH_BOX}    \\13
+    \    Wait until Page contains    Industrial IoT Powerhouse - Relayr    0.5
+    Sleep   2s
+    [Teardown]    Close Browser
+

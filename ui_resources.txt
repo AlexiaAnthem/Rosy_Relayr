@@ -1,0 +1,11 @@
+*** Settings ***
+Library     Selenium2Library
+Library     String
+
+*** Variables ***
+${BROWSER}      firefox
+${URL}      https://www.google.de
+
+#/Configuration
+${SEARCH_BOX}    //*[@id="tsf"]/div[2]/div[1]/div[1]/div/div[2]/input
+${SEARCH_TEXT}   Relayr Berlin

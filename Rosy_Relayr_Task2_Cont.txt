@@ -1,0 +1,24 @@
+# Relayr Task 2 - UI Test Cont.
+
+## Performing a search using google.de
+
+Here, I am using the Robot Framework to look up Relayr and narrow down the results by specifically selecting 'Relayr Berlin'.
+This test is mostly to test functionality and a correct set up. I am using Firefox, as the geckdriver requires less set up than the Chromedriver (my personal laptop not being a DEv Env and having to match versions between Selenium + ChromeDriver).
+
+
+## Additional Tests Cases would include:
+
+- Validation via: 
+keywords, 
+images,
+dropdown menus to select submenus
+subtabs to ensure page orchestration
+
+
+For a real UI test, given a page with more interaction Id forcus primarily on testing the happy path user workflow. 
+Happy Path is that interaction with our webpage where the user is able to create what they want in a smooth way without bumping into any issues at all. 
+
+Secondly, I would focus on testing all intended critical errors.
+This is defined where we guide our user, via critical warnings on how to interact with our website. Examples of this could be letting them know they have reached a certain limit, letting them know they missed a step, warning them of an action that cannot be reversed, etc.
+
+
